@@ -11,8 +11,13 @@
         strokeWidth: 5
     });
     
-    s.path("M " + vpWidth/2 + " 0 L " + vpWidth/2 + " 0 L 0 " + vpHeight + " L 0 0").attr({
+    s.path("M " + vpWidth/2 + " 0 L " + vpWidth + " " + vpHeight + " L 0 " + vpHeight + " L " + vpWidth/2 + " 0").attr({
         fill: "green",
+        strokeWidth: 5
+    });
+
+    s.path("M " + vpWidth/2 + " 0 L " + vpWidth + " 0 L " + vpWidth + " " + vpHeight + " L " + vpWidth/2 + " 0").attr({
+        fill: "orange",
         strokeWidth: 5
     });
 

@@ -1,10 +1,12 @@
 function getRandomColor() {
-    var letters = '0123456789ABCDEF'.split('');
-    var color = '#';
-    for (var i = 0; i < 6; i++ ) {
-        color += letters[Math.round(Math.random() * 15)];
-    }
-    return color;
+    // var letters = '0123456789ABCDEF'.split('');
+    // var color = '#';
+    // for (var i = 0; i < 6; i++ ) {
+    //   color += letters[Math.round(Math.random() * 15)];
+    // }
+    var colors = ["#AA00A2", "#E60042", "#540EAD", "#C9F600"]
+    return colors[Math.floor(Math.random()*colors.length)];
+    // return color;
 }
 
 (function(){
@@ -84,6 +86,7 @@ function getRandomColor() {
      * Makes ONE triangle
      */
     var makeTriangle = function (points, attr) {
+      attr.stroke = "none"
       var path = s.path("M " + points[0][0] + " " + points[0][1] + " L " + points[1][0] + " " + points[1][1] + " L " + points[2][0] + " " + points[2][1] + " L " + points[0][0] + " " + points[0][1]).attr(attr);
       
       /*

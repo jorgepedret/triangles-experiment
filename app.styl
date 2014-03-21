@@ -1,7 +1,35 @@
 body
   padding 0
   margin 0
+  font-family Helvetica, Arial, sans-serif
+  font-size 100%
+  line-height 1.25
 #svg
   width 100vw
   height 100vh
   background #f4f4f4
+
+a
+  color #31608E
+  text-decoration none
+  pointer-events initial
+  &:hover
+    color darken(#31608E, 20%)
+
+.madeby
+  position absolute
+  bottom 0
+  right 5px
+  text-align right
+  width 100%
+  font-size .8125em
+  pointer-events none
+  br
+    display none
+  p 
+    background rgba(#fff, 50%)
+    color #222
+    width auto
+    display inline-block
+    padding 2px 5px
+    margin 0 0 5px 5px

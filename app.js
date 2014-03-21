@@ -45,7 +45,6 @@ function getRandomColor() {
         "#A8590A",
         "#C8A082",
         "#485D3F",
-        "#A97845",
         "#F8EFE7",
         "#A6702B",
         "#5F0C03",

@@ -1,62 +1,72 @@
-function getRandomColor() {
-    // var letters = '0123456789ABCDEF'.split('');
-    // var color = '#';
-    // for (var i = 0; i < 6; i++ ) {
-    //   color += letters[Math.round(Math.random() * 15)];
-    // }
-    var colors = [
-        "#31608E",
-        "#F2F2F0",
-        "#0F1813",
-        "#183B59",
-        "#6F6460",
-        "#F1EEE7",
-        "#CDD8DE",
-        "#1E363B",
-        "#0F3321",
-        "#936A2B",
-        "#4D6B6D",
-        "#687576",
-        "#AAA99B",
-        "#ACBAB3",
-        "#8AC8FD",
-        "#BD8322",
-        "#FFFFFF",
-        "#94473E",
-        "#849295",
-        "#3C455A",
-        "#171916",
-        "#D4D6D8",
-        "#425072",
-        "#65635A",
-        "#A5AABB",
-        "#8D8A76",
-        "#B5B7BE",
-        "#A1683F",
-        "#E66C65",
-        "#DF8E03",
-        "#A5E7DE",
-        "#E1CEC7",
-        "#563B11",
-        "#F2BD30",
-        "#43564E",
-        "#761B01",
-        "#C55A2C",
-        "#A8590A",
-        "#C8A082",
-        "#485D3F",
-        "#F8EFE7",
-        "#A6702B",
-        "#5F0C03",
-        "#F4EA7C",
-        "#FFF870",
-        "#BDAE95",
-        "#003C45",
-        "#D4444F",
-        "#23282E"
+var palettes = [
+
+    [
+      "#e8f4f8",
+      "#99cfe0",
+      "#7FC5E7",
+      "#3D6777",
+      "#white",
+      "#c1e1ec" 
+    ],
+
+    [
+      "#F1F6F0",
+      "#526A78",
+      "#E0E3D8",
+      "#D8CE95",
+      "#8A8750",
+      "#073322" 
+    ],
+
+    [
+      "#E01D17",
+      "#E0434A",
+      "#B22722",
+      "#FC635D",
+      "#ECCFC1",
+      "#FFF5EC" 
+
+    ],
+
+    [
+      "#BEAA87",
+      "#5C685A",
+      "#01171E",
+      "#CFCECC",
+      "#8F6932",
+      "#5686A1"
+    ],
+
+    [
+      "#D99C01",
+      "#EAEAEA",
+      "#DFDCD7",
+      "#B3AFAC",
+      "#AF9980"
+    ],
+
+    [
+      "#B1AD95",
+      "#3B3E46",
+      "#CBC4B3",
+      "#707059",
+      "#A39577",
+      "#1B1519",
+      "#3B5998"
+    ],
+
+    [
+      "#45455C",
+      "#83ACE6",
+      "#CD9FD4",
+      "#F6C6F6",
+      "#FDE3FF"
     ]
-    return colors[Math.floor(Math.random()*colors.length)];
-    // return color;
+]
+var colors = palettes[Math.floor(Math.random()*palettes.length)];
+
+function getRandomColor() {
+  return colors[Math.floor(Math.random()*colors.length)];
 }
 
 (function(){
@@ -65,7 +75,7 @@ function getRandomColor() {
     var s = Snap("#svg");
 
     var vpWidth = $(window).outerWidth();
-    var vpHeight = $(window).outerHeight();
+    var vpHeight = $(window).outerHeight() * 0.9;
 
     /*
      * Initial two triangles configuration object
@@ -90,7 +100,8 @@ function getRandomColor() {
         attr: {
           fill: getRandomColor()
         }
-      }
+      },
+
     ];
 
     /*

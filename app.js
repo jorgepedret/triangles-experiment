@@ -5,7 +5,6 @@ var palettes = [
       "#99cfe0",
       "#7FC5E7",
       "#3D6777",
-      "#white",
       "#c1e1ec" 
     ],
 
@@ -23,15 +22,12 @@ var palettes = [
       "#E0434A",
       "#B22722",
       "#FC635D",
-      "#ECCFC1",
-      "#FFF5EC" 
-
+      "#ECCFC1"
     ],
 
     [
       "#BEAA87",
       "#5C685A",
-      "#01171E",
       "#CFCECC",
       "#8F6932",
       "#5686A1"
@@ -128,7 +124,9 @@ function getRandomColor() {
     var s = Snap("#svg");
 
     var vpWidth = $(window).outerWidth();
-    var vpHeight = $(window).outerHeight() * 0.9;
+    var vpHeight = $(window).outerHeight() - 30;
+
+    s.attr({ width: vpWidth + "px", height: vpHeight + "px" })
 
     /*
      * Initial two triangles configuration object
@@ -228,5 +226,36 @@ function getRandomColor() {
 
   }
 
+  var prepareImage = function(){
+    var target = $("#svg")[0];
+    
+    // Takes an SVG element as target
+    function svg_to_png_data(target) {
+      // Flatten CSS styles into the SVG
+      for (i = 0; i < target.childNodes.length; i++) {
+        child = target.childNodes[i];
+        child.style.cssText = window.getComputedStyle(child).cssText;
+      }
+      // Construct an SVG image
+      svg_data = '<svg xmlns="http://www.w3.org/2000/svg" width="' + target.offsetWidth +
+                 '" height="' + target.offsetHeight + '">' + target.innerHTML + '</svg>';
+      var img = new Image();
+      img.src = "data:image/svg+xml," + encodeURIComponent(svg_data);
+
+      // Draw the SVG image to a canvas
+      var mycanvas = document.createElement('canvas');
+      mycanvas.width = target.offsetWidth;
+      mycanvas.height = target.offsetHeight;
+      
+      var ctx = mycanvas.getContext("2d");
+      ctx.drawImage(img, 0, 0);
+
+      // Return the canvas's data
+      return mycanvas.toDataURL("image/png");
+    }
+    data = svg_to_png_data(target);
+    $(this).attr({ href: data, download: "triangles.png" })
+  }
+  $(".js-dowload").on("click", prepareImage);
   window.onload = init
 })()

@@ -12,15 +12,14 @@ html(lang="en")
      ga('create', 'UA-49241744-1', 'harp.io');
      ga('send', 'pageview');
   body
-    svg#svg
+    svg(xmlns="http://www.w3.org/2000/svg")#svg
+    canvas#canvas
     .madeby
-      //- p: a.js-dowload(href="#") Download
-      p A visual experiment by <a href="http://twitter.com/jorgepedret" target="_blank">Jorge Pedret</a> &amp; <a href="http://twitter.com/EleniFragkouli" target="_blank">Eleni Fragkouli</a>.
-      br
-      p: a(href="https://github.com/jorgepedret/triangles-experiment" target="_blank") View Project on Github &rarr;
+      p
+        a.js-dowload(href="#"): strong Download as png
+        |  &mdash;  
+        a(href="https://github.com/jorgepedret/triangles-experiment" target="_blank") View Project on Github
+        |  &mdash; A visual experiment by <a href="http://twitter.com/jorgepedret" target="_blank">Jorge Pedret</a> &amp; <a href="http://twitter.com/EleniFragkouli" target="_blank">Eleni Fragkouli</a>.
     script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js").
     script(src="snap.svg-min.js").
-    //- script(type='text/javascript' src='http://canvg.googlecode.com/svn/trunk/rgbcolor.js').
-    //- script(type='text/javascript' src='http://canvg.googlecode.com/svn/trunk/StackBlur.js').
-    //- script(type='text/javascript' src='http://canvg.googlecode.com/svn/trunk/canvg.js').
     script(src="app.js").
